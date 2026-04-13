@@ -1,3 +1,8 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class Personaje {
 
     private String nombre;
@@ -8,11 +13,9 @@ public class Personaje {
     private int nivel;
     private int experiencia;
 
-    // TODO: elegir estructura para habilidades
-    // private ???
+    private Set<String> habilidades;
 
-    // TODO: elegir estructura para inventario
-    // private ???
+    private Map<String, Integer> inventario;
 
     public Personaje(String nombre, int vidaMax, int ataque, int defensa) {
         this.nombre = nombre;
@@ -22,8 +25,8 @@ public class Personaje {
         this.defensa = defensa;
         this.nivel = 1;
         this.experiencia = 0;
-
-        // TODO: inicializar colecciones
+        this.habilidades = new HashSet<String>();
+        this.inventario = new HashMap<String, Integer>();
     }
 
     // =========================
@@ -43,36 +46,86 @@ public class Personaje {
     // =========================
 
     public void anhadirHabilidad(String habilidad) {
-        // TODO
+        System.out.println("Añadiendo la habilidad: " + habilidad);
+        if (habilidades.contains(habilidad)) {
+            System.out.println("No se puede añadir " + habilidad + ": ¡ya la tenía!");
+        } else {
+            this.habilidades.add(habilidad);
+            System.out.println("Habilidad " + habilidad + " añadida.");
+        }
     }
 
     public void mostrarHabilidades() {
-        // TODO
+        System.out.println("Tienes " + habilidades.size() + " habilidades. Las habilidades son: ");
+        for (String habilidad:habilidades) {
+            System.out.println("- " + habilidad);
+        }
     }
 
     public boolean tieneHabilidad(String habilidad) {
-        // TODO
-        return false;
+        return habilidades.contains(habilidad);
     }
 
     // =========================
     // INVENTARIO (MAP)
+
     // =========================
 
     public void anhadirObjeto(String objeto, int cantidad) {
-        // TODO
+        System.out.println("Añadiendo " + cantidad + " de " + objeto);
+
+        // Versión extendida (la más clara a estas alturas)
+        int cantidadAConfigurar;
+        if (inventario.containsKey(objeto)) {
+            cantidadAConfigurar = cantidad + inventario.get(objeto);
+        } else {
+            cantidadAConfigurar = cantidad;
+        }
+        inventario.put(objeto, cantidadAConfigurar);
+
+        // Versión simplificada a una operación ternaria
+        // inventario.put(objeto, inventario.containsKey(objeto)?inventario.get(objeto) + cantidad : cantidad);
+
+        System.out.println("Ahora de " + objeto + " hay " + inventario.get(objeto));
     }
 
     public void mostrarInventario() {
-        // TODO
+        System.out.println("Mostrando inventario: ");
+
+        // Versión estándar
+        Set<String> todasLasClaves = inventario.keySet();
+        for (String clave:todasLasClaves) {
+            System.out.println("- " + clave + ": " + inventario.get(clave));
+        }
+
+        // Versión usando "Entry<key,value" - no estudiada en clase.
+        // for (Map.Entry<String,Integer> claveValor : inventario.entrySet()) {
+        //     System.out.println("- " + claveValor.getKey() + ": " + claveValor.getValue());
+        // }
     }
 
     public boolean tieneObjeto(String objeto) {
-        // TODO
-        return false;
+        return inventario.containsKey(objeto);
     }
 
     public void usarObjeto(String objeto) {
-        // TODO
+        if (!inventario.containsKey(objeto))  {
+            System.out.println("No tienes ningún objeto de tipo " + objeto);
+        } else {
+            // En el caso de que por algún error se haya guardado un número negativo o 0 de objetos:
+            if (inventario.get(objeto) <= 0) {
+                System.out.println("No tienes ningún objeto de tipo " + objeto);
+                inventario.remove(objeto);
+            } else {
+                inventario.put(objeto, inventario.get(objeto) -1);
+                System.out.println("Se ha usado un " + objeto);
+                if (inventario.get(objeto) == 0) {
+                    System.out.println("No te quedan más. Eliminando del inventario.");
+                    inventario.remove(objeto);
+                } else {
+                    System.out.println("Te quedan de " + objeto + " " + inventario.get(objeto));
+                }
+            }
+        }
     }
 }
