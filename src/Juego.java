@@ -1,4 +1,3 @@
-import javax.xml.transform.Source;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -29,7 +28,7 @@ public class Juego {
 
     private Personaje jugador;
 
-    // Podríamos declararlo como "List", pero hasta ver herencia no lo hacemos.
+    // Podríamos declararlo como "List", pero hasta ver interfaces no lo hacemos.
     private ArrayList<Enemigo> enemigos;
 
     private Scanner sc;
@@ -103,7 +102,7 @@ public class Juego {
                 aleatorio.nextInt(ENEMIGO_ATAQUE_MINIMO, ENEMIGO_ATAQUE_MAXIMO+1)
                 );
         enemigos.add(enemigo);
-        System.out.print("Has encontrado a un enemigo:");
+        System.out.println("Has encontrado a un enemigo:");
         enemigo.mostrarInfo();
     }
 
@@ -112,7 +111,7 @@ public class Juego {
         System.out.println("Hasta ahora has encontrado " + enemigos.size());
         System.out.println("Te has encontrado con: ");
         for (int i = 0; i<enemigos.size(); i++) {
-            System.out.print((i+1) + " - " + enemigos.get(i).getNombre()) ;
+            System.out.println((i+1) + " - " + enemigos.get(i).getNombre()) ;
         }
     }
 }

@@ -12,7 +12,7 @@ public class Personaje {
     private int nivel;
     private int experiencia;
 
-    // Podríamos declararlos como Set y Map, pero hasta que veamos herencia no lo haremos
+    // Podríamos declararlos como Set y Map, pero hasta que veamos interfaces no lo haremos
     private HashSet<String> habilidades;
     private HashMap<String, Integer> inventario;
 
@@ -55,9 +55,13 @@ public class Personaje {
     }
 
     public void mostrarHabilidades() {
-        System.out.println("Tienes " + habilidades.size() + " habilidades. Las habilidades son: ");
-        for (String habilidad:habilidades) {
-            System.out.println("- " + habilidad);
+        if (habilidades.isEmpty()) {
+            System.out.println("No tienes habilidades");
+        } else {
+            System.out.println("Tienes " + habilidades.size() + " habilidades. Las habilidades son: ");
+            for (String habilidad : habilidades) {
+                System.out.println("- " + habilidad);
+            }
         }
     }
 
@@ -91,16 +95,20 @@ public class Personaje {
     public void mostrarInventario() {
         System.out.println("Mostrando inventario: ");
 
-        // Versión estándar
-        Set<String> todasLasClaves = inventario.keySet();
-        for (String clave:todasLasClaves) {
-            System.out.println("- " + clave + ": " + inventario.get(clave));
-        }
+        if (inventario.isEmpty()) {
+            System.out.println("El inventario está vacío!");
+        } else {
+            // Versión estándar
+            Set<String> todasLasClaves = inventario.keySet();
+            for (String clave : todasLasClaves) {
+                System.out.println("- " + clave + ": " + inventario.get(clave));
+            }
 
-        // Versión usando "Entry<key,value" - no estudiada en clase.
-        // for (Map.Entry<String,Integer> claveValor : inventario.entrySet()) {
-        //     System.out.println("- " + claveValor.getKey() + ": " + claveValor.getValue());
-        // }
+            // Versión usando "Entry<key,value" - no estudiada en clase.
+            // for (Map.Entry<String,Integer> claveValor : inventario.entrySet()) {
+            //     System.out.println("- " + claveValor.getKey() + ": " + claveValor.getValue());
+            // }
+        }
     }
 
     public boolean tieneObjeto(String objeto) {
