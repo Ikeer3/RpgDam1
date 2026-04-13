@@ -11,7 +11,7 @@ public class Enemigo {
     }
 
     public void mostrarInfo() {
-        // TODO
+        System.out.println( nombre + " tiene una vida de " + vida + " y un ataque de " + ataque);
     }
 
     public String getNombre() {
