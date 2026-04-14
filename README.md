@@ -1,113 +1,125 @@
-# Práctica 1 — Sistema RPG (Listas, Sets y Maps)
+# Práctica 2 — Sistema RPG (Excepciones y ficheros)
 
 ## Contexto
 
-Se va a desarrollar un sistema sencillo de juego tipo RPG por turnos.
+Se continúa el desarrollo del sistema RPG comenzado en la práctica anterior.
 
 El jugador controla un personaje que puede explorar, encontrar enemigos, aprender habilidades y gestionar un inventario.
 
-Se proporciona un esqueleto de código que debe ser completado.
+En esta práctica se añadirá gestión de errores mediante excepciones y persistencia básica mediante lectura y escritura de ficheros.
 
-Se proporcionan algunas clases de Test para hacer pruebas básicas del funcionamiento del código implementado. 
-
-**La estructura del proyecto, así como las clases de Test, NO es la forma adecuada de codificar; en 3-4 semanas modificaremos eso**
+Se parte del código de la práctica anterior. No hay que rehacer lo ya implementado, sino ampliarlo.
 
 ---
 
 ## Objetivo
 
-El objetivo de la práctica es trabajar con colecciones en Java:
+El objetivo de esta práctica es trabajar con:
 
-- List
-- Set
-- Map
-
-Se evaluará la capacidad de elegir la estructura adecuada y operar correctamente sobre ella.
+- excepciones
+- lectura de ficheros
+- escritura de ficheros
 
 ---
 
-## Parte 1 — Clase Personaje
+## Parte 1 — Excepciones
 
-Completar la clase `Personaje`.
+Debes crear al menos dos excepciones propias para el proyecto.
 
-El personaje debe gestionar:
+Ejemplos de situaciones que deben tratarse con excepción:
 
-- un conjunto de habilidades (sin duplicados)
-- un inventario de objetos con cantidades
+- intentar usar un objeto que no existe
+- intentar usar un objeto cuya cantidad es 0
+- intentar descansar cuando la vida ya está al máximo
+- intentar atacar o realizar una acción no permitida en ese momento
 
-### Habilidades
+### Requisitos
 
-Implementar los métodos:
-
-- `anhadirHabilidad(String habilidad)`
-- `mostrarHabilidades()`
-- `tieneHabilidad(String habilidad)`
-
-Condiciones:
-
-- No se pueden repetir habilidades
+1. Debes crear al menos dos clases de excepción propias.
+2. Debes usar `throw` en los métodos donde se detecte la situación inválida.
+3. Debes usar `try-catch` en la parte del programa donde se invoquen esas acciones.
+4. El programa no debe terminar abruptamente al producirse una excepción controlada.
 
 ---
 
-### Inventario
+## Parte 2 — Combate básico
 
-Implementar los métodos:
+Se añadirá un sistema de combate simple.
 
-- `anhadirObjeto(String objeto, int cantidad)`
-- `mostrarInventario()`
-- `tieneObjeto(String objeto)`
-- `usarObjeto(String objeto)`
+### En la clase `Personaje`
 
-Condiciones:
+Debes implementar un método que permita atacar a un enemigo.
 
-- Si el objeto ya existe, se incrementa su cantidad
-- Al usar un objeto, su cantidad disminuye
-- Si la cantidad llega a 0, el objeto debe eliminarse
+Ejemplo de método posible:
+
+- `atacar(Enemigo enemigo)`
+
+### En la clase `Enemigo`
+
+Debes añadir al menos:
+
+- un método para recibir daño
+- un método para comprobar si sigue vivo
+
+### En la clase `Juego`
+
+Debes modificar `buscarEnemigo()` para que, después de generar un enemigo, el jugador pueda combatir contra él.
+
+No es necesario hacer un sistema complejo. Basta con un combate simple por turnos o una resolución directa.
+
+### Requisitos mínimos del combate
+
+- el personaje debe poder dañar al enemigo
+- el enemigo debe poder perder vida
+- si el enemigo muere, debe indicarse por consola
+- el personaje debe ganar experiencia al derrotar a un enemigo
 
 ---
 
-## Parte 2 — Clase Enemigo
+## Parte 3 — Guardar personaje en fichero
 
-Completar la clase `Enemigo`.
+Debes implementar un método que permita guardar la información del personaje en un fichero de texto.
 
-Debe tener:
+La información mínima que debe guardarse es:
 
 - nombre
 - vida
+- vida máxima
 - ataque
+- defensa
+- nivel
+- experiencia
 
-Implementar el método:
+Además, debe guardarse también:
 
-- `mostrarInfo()`
+- habilidades
+- inventario
 
----
+### Requisitos
 
-## Parte 3 — Gestión de enemigos
-
-En la clase `Juego`:
-
-Crear una colección para almacenar enemigos encontrados.
-
-### Método `buscarEnemigo()`
-
-Debe:
-
-- generar un enemigo aleatorio
-- añadirlo a la colección
-- mostrar su información
-
-### Método `mostrarEnemigosEncontrados()`
-
-Debe:
-
-- recorrer la colección
-- mostrar todos los enemigos
+1. El fichero debe generarse desde el propio programa.
+2. Debe usarse escritura de ficheros en Java.
+3. El formato puede ser libre, pero debe ser legible y suficientemente claro para poder cargarse después.
 
 ---
 
-## Parte 4 — Menú
+## Parte 4 — Cargar personaje desde fichero
 
-El programa debe tener un menú con las siguientes opciones:
+Debes implementar un método que permita reconstruir el personaje a partir de un fichero previamente guardado.
+
+### Requisitos
+
+1. Debe usarse lectura de ficheros en Java.
+2. Debe cargarse correctamente toda la información guardada en la parte anterior.
+3. Si el fichero no existe o no puede leerse, el error debe tratarse adecuadamente.
+
+---
+
+## Parte 5 — Menú
+
+El menú del programa debe ampliarse con nuevas opciones.
+
+Debe incluir, al menos:
 
 1. Ver estado
 2. Buscar enemigo
@@ -115,46 +127,26 @@ El programa debe tener un menú con las siguientes opciones:
 4. Ver inventario
 5. Ver habilidades
 6. Ver enemigos encontrados
+7. Guardar personaje
+8. Cargar personaje
 0. Salir
 
 ---
 
 ## Requisitos técnicos
 
-Se debe usar obligatoriamente:
-
-- al menos una `List`
-- al menos un `Set`
-- al menos un `Map`
-
-No se permite:
-
-- usar arrays para estas funcionalidades
-- duplicar código
-- concentrar toda la lógica en `main`
-
-Cada clase debe encargarse de su propia lógica.
-
----
-
-## Salida por consola
-
-El programa debe mostrar mensajes adecuados cuando:
-
-- se añade una habilidad
-- se intenta añadir una habilidad repetida
-- se añade un objeto
-- se usa un objeto
-- se elimina un objeto del inventario
-- se encuentra un enemigo
+- Debes mantener el uso correcto de colecciones de la práctica anterior.
+- Debes usar al menos dos excepciones propias.
+- Debes usar lectura y escritura de ficheros.
+- No se permite rehacer el proyecto desde cero.
+- Cada clase debe seguir encargándose de su propia lógica.
 
 ---
 
 ## Restricciones
 
-- No se implementa combate en esta práctica
-- No se usan excepciones
-- No se usan herencia ni interfaces
+- No se usan herencia ni interfaces todavía.
+- No se permite eliminar el trabajo de la práctica anterior.
+- No se permite concentrar toda la lógica en `main`.
 
 ---
-responsabilidades

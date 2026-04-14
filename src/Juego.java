@@ -40,12 +40,12 @@ public class Juego {
     }
 
     public void iniciar() {
-
         int opcion;
 
         do {
             mostrarMenu();
             opcion = sc.nextInt();
+            sc.nextLine();
 
             switch (opcion) {
                 case 1:
@@ -55,6 +55,7 @@ public class Juego {
                     buscarEnemigo();
                     break;
                 case 3:
+                    // TODO: ya os va a saltar error, recordad hacer try-catch
                     jugador.descansar();
                     break;
                 case 4:
@@ -65,6 +66,12 @@ public class Juego {
                     break;
                 case 6:
                     mostrarEnemigosEncontrados();
+                    break;
+                case 7:
+                    guardarPersonaje();
+                    break;
+                case 8:
+                    cargarPersonaje();
                     break;
                 case 0:
                     System.out.println("Saliendo...");
@@ -85,6 +92,8 @@ public class Juego {
         System.out.println("4. Ver inventario");
         System.out.println("5. Ver habilidades");
         System.out.println("6. Ver enemigos encontrados");
+        System.out.println("7. Guardar personaje");
+        System.out.println("8. Cargar personaje");
         System.out.println("0. Salir");
         System.out.print("Elige opción: ");
     }
@@ -104,6 +113,9 @@ public class Juego {
         enemigos.add(enemigo);
         System.out.println("Has encontrado a un enemigo:");
         enemigo.mostrarInfo();
+
+        // TODO semana 3:
+        // llamar a un combate sencillo contra el enemigo
     }
 
     private void mostrarEnemigosEncontrados() {
@@ -113,5 +125,29 @@ public class Juego {
         for (int i = 0; i<enemigos.size(); i++) {
             System.out.println((i+1) + " - " + enemigos.get(i).getNombre()) ;
         }
+    }
+
+    private void guardarPersonaje() {
+        // TODO semana 3:
+        // pedir nombre de fichero o usar uno fijo
+        // llamar a la clase encargada de guardar
+        // controlar posibles errores
+    }
+
+    private void cargarPersonaje() {
+        // TODO semana 3:
+        // pedir nombre de fichero o usar uno fijo
+        // cargar personaje desde fichero
+        // sustituir this.jugador por el cargado
+        // controlar posibles errores
+    }
+
+    private boolean combatir(Enemigo enemigo) {
+        // TODO semana 3:
+        // combate simple:
+        // jugador y enemigo se atacan alternativamente hasta que uno muere.
+        // Devuelve "true" si el jugador gana, "false" si el jugador muere.
+        // El jugador gana una XP equivalente a los puntos de vida del enemigo.
+        return true;
     }
 }

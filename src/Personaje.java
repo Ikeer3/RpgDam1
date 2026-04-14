@@ -16,16 +16,24 @@ public class Personaje {
     private HashSet<String> habilidades;
     private HashMap<String, Integer> inventario;
 
+    // Este es el constructor para una partida nueva. Hace un personaje a través del constructor que
+    // recibe TODOS los parámetros, pero inicializa como vacíos algunos.
     public Personaje(String nombre, int vidaMax, int ataque, int defensa) {
+        this(nombre, vidaMax, vidaMax, ataque, defensa, 1, 0, new HashSet<String>(), new HashMap<String, Integer>());
+    }
+
+    // Constructor para hacer un personaje a partir de los datos que tenemos guardados del mismo.
+    public Personaje(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia,
+    HashSet<String> habilidades, HashMap<String, Integer> inventario) {
         this.nombre = nombre;
+        this.vida = vida;
         this.vidaMax = vidaMax;
-        this.vida = vidaMax;
         this.ataque = ataque;
         this.defensa = defensa;
-        this.nivel = 1;
-        this.experiencia = 0;
-        this.habilidades = new HashSet<String>();
-        this.inventario = new HashMap<String, Integer>();
+        this.nivel = nivel;
+        this.experiencia = experiencia;
+        this.habilidades = habilidades;
+        this.inventario = inventario;
     }
 
     // =========================
@@ -33,11 +41,25 @@ public class Personaje {
     // =========================
 
     public void mostrarEstado() {
-        // TODO
+        // TODO semana 3:
+        // mostrar todos los datos principales del personaje
     }
 
     public void descansar() {
-        // TODO
+        // TODO semana 3:
+        // si la vida ya está al máximo, lanzar excepción
+        // si no, recuperar vida
+    }
+
+    public void ganarExperiencia(int cantidad) {
+        // TODO semana 3:
+        // sumar experiencia
+    }
+
+    public void atacar(Enemigo enemigo)  {
+        // TODO semana 3:
+        // si el personaje no puede atacar por estar muerto, lanzar excepción "PersonajeMuertoException"
+        // si no, dañar al enemigo
     }
 
     // =========================
@@ -116,23 +138,10 @@ public class Personaje {
     }
 
     public void usarObjeto(String objeto) {
-        if (!inventario.containsKey(objeto))  {
-            System.out.println("No tienes ningún objeto de tipo " + objeto);
-        } else {
-            // En el caso de que por algún error se haya guardado un número negativo o 0 de objetos:
-            if (inventario.get(objeto) <= 0) {
-                System.out.println("No tienes ningún objeto de tipo " + objeto);
-                inventario.remove(objeto);
-            } else {
-                inventario.put(objeto, inventario.get(objeto) -1);
-                System.out.println("Se ha usado un " + objeto);
-                if (inventario.get(objeto) == 0) {
-                    System.out.println("No te quedan más. Eliminando del inventario.");
-                    inventario.remove(objeto);
-                } else {
-                    System.out.println("Te quedan de " + objeto + " " + inventario.get(objeto));
-                }
-            }
-        }
+        // TODO semana 3:
+        // si no existe el objeto, lanzar excepción ObjetoNoDisponibleException
+        // si su cantidad es 0 o menor, lanzar excepción ObjetoNoDisponibleException y eliminarlo
+        // si se puede usar, restar 1
+        // si queda a 0, eliminarlo del inventario
     }
 }

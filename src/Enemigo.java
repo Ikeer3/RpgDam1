@@ -17,4 +17,16 @@ public class Enemigo {
     public String getNombre() {
         return nombre;
     }
+
+    public void recibirDanio(int cantidad) {
+        // TODO semana 3:
+        // restar vida al enemigo
+        // la vida no debe quedar por debajo de 0
+    }
+
+    public boolean estaVivo() {
+        // TODO semana 3:
+        // devolver true si el enemigo sigue vivo, false si no
+        return false;
+    }
 }
