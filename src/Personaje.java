@@ -43,7 +43,12 @@ public class Personaje {
     // =========================
 
     public void anhadirHabilidad(String habilidad) {
-        // TODO
+        if (habilidades.contains(habilidad)) {
+            System.out.println("La habilidad " + habilidad + " ya existe. No se puede añadir!!");
+        } else {
+            habilidades.add(habilidad);
+            System.out.println("La habilidad " + habilidad + " ha sido añadida correctamente!!");
+        }
     }
 
     public void mostrarHabilidades() {
