@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Personaje {
 
@@ -52,7 +53,14 @@ public class Personaje {
     }
 
     public void mostrarHabilidades() {
-        // TODO
+        if (habilidades.isEmpty()) {
+            System.out.println("No tienes ninguna habilidad");
+        } else {
+            System.out.println("Tienes " + habilidades.size() + ". Las habilidades son: ");
+            for (String habilidad: habilidades) {
+                System.out.println("- " + habilidad);
+            }
+        }
     }
 
     public boolean tieneHabilidad(String habilidad) {
