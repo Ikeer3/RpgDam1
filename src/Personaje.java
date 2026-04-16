@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class Personaje {
 
     private String nombre;
@@ -8,11 +11,8 @@ public class Personaje {
     private int nivel;
     private int experiencia;
 
-    // TODO: elegir estructura para habilidades
-    // private ???
-
-    // TODO: elegir estructura para inventario
-    // private ???
+    private HashSet<String> habilidades = new HashSet<>();
+    private HashMap<String, Integer> inventario = new HashMap<>();
 
     public Personaje(String nombre, int vidaMax, int ataque, int defensa) {
         this.nombre = nombre;
