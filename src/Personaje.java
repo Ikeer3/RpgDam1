@@ -11,8 +11,8 @@ public class Personaje {
     private int nivel;
     private int experiencia;
 
-    private HashSet<String> habilidades = new HashSet<>();
-    private HashMap<String, Integer> inventario = new HashMap<>();
+    private HashSet<String> habilidades;
+    private HashMap<String, Integer> inventario;
 
     public Personaje(String nombre, int vidaMax, int ataque, int defensa) {
         this.nombre = nombre;
@@ -22,8 +22,8 @@ public class Personaje {
         this.defensa = defensa;
         this.nivel = 1;
         this.experiencia = 0;
-
-        // TODO: inicializar colecciones
+        this.habilidades = new HashSet<>();
+        this.inventario = new HashMap<>();
     }
 
     // =========================
