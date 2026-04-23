@@ -72,7 +72,14 @@ public class Personaje {
     // =========================
 
     public void anhadirObjeto(String objeto, int cantidad) {
-        // TODO
+        System.out.println("Añadiendo " + cantidad + " de " + objeto);
+        int cantidadAnhadir;
+        if (inventario.containsValue(objeto)) {
+            cantidadAnhadir = cantidad + inventario.get(objeto);
+        } else {
+            cantidadAnhadir = cantidad;
+        }
+        inventario.put(objeto, cantidadAnhadir);
     }
 
     public void mostrarInventario() {
