@@ -64,8 +64,7 @@ public class Personaje {
     }
 
     public boolean tieneHabilidad(String habilidad) {
-        // TODO
-        return false;
+        return habilidades.contains(habilidad);
     }
 
     // =========================
