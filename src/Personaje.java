@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 public class Personaje {
 
@@ -83,7 +84,15 @@ public class Personaje {
     }
 
     public void mostrarInventario() {
-        // TODO
+        if (inventario.isEmpty()) {
+            System.out.println("No tienes ningún objeto. El inventario está vacío");
+        } else {
+            System.out.println("Tienes " + inventario.size() + ". Los objetos son: ");
+            Set<String> todasClaves = inventario.keySet();
+            for (String clave: todasClaves) {
+                System.out.println("- " + clave + ": " + inventario.get(clave));
+            }
+        }
     }
 
     public boolean tieneObjeto(String objeto) {
