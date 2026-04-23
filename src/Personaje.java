@@ -100,6 +100,22 @@ public class Personaje {
     }
 
     public void usarObjeto(String objeto) {
-        // TODO
+        if (!inventario.containsKey(objeto)) {
+            System.out.println("No tienes ningún objeto de tipo " + objeto);
+        } else {
+            if (inventario.get(objeto) <= 0) {
+                System.out.println("No tienes ningún objeto de tipo " + objeto);
+                inventario.remove(objeto);
+            } else {
+                inventario.put(objeto, inventario.get(objeto) - 1);
+                System.out.println("Se ha usado un " + objeto);
+                if (inventario.get(objeto) == 0) {
+                    System.out.println("No te quedan más. Eliminado del inventario");
+                    inventario.remove(objeto);
+                } else {
+                    System.out.println("Te quedan " + objeto + " " + inventario.get(objeto));
+                }
+            }
+        }
     }
 }
