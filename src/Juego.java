@@ -1,19 +1,17 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Juego {
 
     private Personaje jugador;
-
-    // TODO: elegir estructura para enemigos encontrados (LIST)
-    // private ???
+    private ArrayList<Enemigo> enemigos;
 
     private Scanner sc;
 
     public Juego() {
         this.jugador = new Personaje("Jugador", 100, 20, 10);
         this.sc = new Scanner(System.in);
-
-        // TODO: inicializar colección de enemigos
+        this.enemigos = new ArrayList<>();
     }
 
     public void iniciar() {
