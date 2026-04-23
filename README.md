@@ -206,7 +206,6 @@ El juego debe seguir teniendo menú por consola y permitir, al menos:
 0. Salir
 
 ---
-
 ## Requisitos técnicos
 
 - Debe usarse herencia de forma real
