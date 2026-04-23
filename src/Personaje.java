@@ -96,8 +96,7 @@ public class Personaje {
     }
 
     public boolean tieneObjeto(String objeto) {
-        // TODO
-        return false;
+        return inventario.containsKey(objeto);
     }
 
     public void usarObjeto(String objeto) {
