@@ -1,7 +1,13 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Juego {
+
+    private static final int ENEMIGO_VIDA_MAXIMA = 100;
+    private static final int ENEMIGO_VIDA_MINIMA = 80;
+    private static final int ENEMIGO_ATAQUE_MAXIMO = 20;
+    private static final int ENEMIGO_ATAQUE_MINIMO = 5;
 
     private Personaje jugador;
     private ArrayList<Enemigo> enemigos;
@@ -65,6 +71,10 @@ public class Juego {
     }
 
     private void buscarEnemigo() {
+
+        Random random = new Random();
+
+
 
         // TODO:
         // 1. Crear enemigo aleatorio
