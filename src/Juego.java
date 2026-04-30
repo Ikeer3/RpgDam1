@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -90,13 +91,16 @@ public class Juego {
 
         Random random = new Random();
 
+        String nombre = nombresEnemigos[random.nextInt(nombresEnemigos.length)] + " "
+                + aliasEnemigos[random.nextInt(aliasEnemigos.length)];
 
+        Enemigo enemigo = new Enemigo(nombre,
+                random.nextInt(ENEMIGO_VIDA_MINIMA, ENEMIGO_VIDA_MAXIMA+1),
+                random.nextInt(ENEMIGO_ATAQUE_MINIMO, ENEMIGO_ATAQUE_MAXIMO+1));
 
-        // TODO:
-        // 1. Crear enemigo aleatorio
-        // 2. Añadirlo a la colección
-        // 3. Mostrar información
-
+        enemigos.add(enemigo);
+        System.out.println("Has encontrado a un enemigo:");
+        enemigo.mostrarInfo();
     }
 
     private void mostrarEnemigosEncontrados() {
