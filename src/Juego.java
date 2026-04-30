@@ -9,6 +9,22 @@ public class Juego {
     private static final int ENEMIGO_ATAQUE_MAXIMO = 20;
     private static final int ENEMIGO_ATAQUE_MINIMO = 5;
 
+    private static final String[] nombresEnemigos = {
+            "Bowser", "Ganondorf", "Sephiroth", "Dr. Eggman",
+            "Ridley", "Nemesis", "Pyramid Head", "GLaDOS",
+            "Handsome Jack", "Vaas Montenegro", "Albert Wesker", "Arthas",
+            "Diablo", "Kefka", "Vergil", "Akuma",
+            "M. Bison", "Liquid Snake", "Saren", "The Illusive Man"
+    };
+
+    private static final String[] aliasEnemigos = {
+            "Sombra Oscura", "Guardián de Fuego", "Espectro Helado", "Titán de Piedra",
+            "Serpiente Abisal", "Cazador Nocturno", "Bestia Carmesí", "Hechicero Maldito",
+            "Dragón de Cenizas", "Caballero Caído", "Señor de las Sombras", "Gólem de Hierro",
+            "Bruja del Pantano", "Demonio Errante", "Lobo Espectral", "Centinela Antiguo",
+            "Rey Esqueleto", "Engendro del Vacío", "Ángel Corrupto", "Coloso Marchito"
+    };
+
     private Personaje jugador;
     private ArrayList<Enemigo> enemigos;
 
