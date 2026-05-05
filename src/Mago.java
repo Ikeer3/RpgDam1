@@ -15,7 +15,8 @@ public class Mago extends Personaje {
     }
 
     public Mago(String nombre) {
-        super(nombre);
+        // Inicializamos el mago con más ataque pero menos vida
+        super(nombre, (int) Math.floor(Personaje.VIDA_INICIAL * 0.9d), (int) Math.ceil(Personaje.ATAQUE_INICIAL*1.2) , Personaje.DEFENSA_INICIAL);
     }
 
     @Override

@@ -21,14 +21,16 @@ public class Arquero extends Personaje {
 
     @Override
     public void atacar(Enemigo enemigo) throws PersonajeMuertoException {
+        System.out.println(getNombre() + " ataca a " + enemigo.getNombre()+ ". ");
         if (getVida()<=0) {
             throw new PersonajeMuertoException();
         } else {
             Random random = new Random();
             boolean esCritico = random.nextInt(10)==0;
             if (esCritico) {
+                int danho = getAtaque() * 2;
                 enemigo.recibirDanio(getAtaque() * 2);
-                System.out.println(getNombre() + " hace un ataque crítico!");
+                System.out.println(getNombre() + " hace un ataque crítico! Hace " + danho);
             } else {
                 super.atacar(enemigo);
             }

@@ -93,6 +93,7 @@ public class Personaje {
     }
 
     public void atacar(Enemigo enemigo) throws PersonajeMuertoException {
+        System.out.println(getNombre() + " hace " + ataque + " a " + enemigo.getNombre());
         if (vida<=0) {
             throw new PersonajeMuertoException();
         } else {
@@ -231,6 +232,8 @@ public class Personaje {
         }
     }
     public void recibirDanho(int cantidad) {
-        vida -= Math.max(0, cantidad-defensa);
+        int danho = Math.max(0, cantidad-defensa);
+        System.out.println(getNombre() + " recibe " + danho + " de daño.");
+        vida -= danho;
     }
 }

@@ -52,17 +52,16 @@ public class Juego {
 
         }
         String nombre = "Jugador";
-        Personaje jugador;
         if (opcion==1) {
-            jugador = new Guerrero(nombre);
+            this.jugador = new Guerrero(nombre);
         } else if (opcion == 2) {
-            jugador = new Mago(nombre);
+            this.jugador = new Mago(nombre);
         } else {
-            jugador = new Arquero(nombre);
+            this.jugador = new Arquero(nombre);
         }
 
         // Alternativamente, podemos inicializar nuestro personaje así:
-        //jugador = opcion == 1 ? new Guerrero(nombre) : opcion==2 ? new Mago(nombre) : new Arquero(nombre);
+        //this.jugador = opcion == 1 ? new Guerrero(nombre) : opcion==2 ? new Mago(nombre) : new Arquero(nombre);
 
         this.enemigos = new ArrayList<Enemigo>();
     }
