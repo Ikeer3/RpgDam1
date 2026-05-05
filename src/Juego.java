@@ -180,7 +180,7 @@ public class Juego {
 
     private boolean combatir(Enemigo enemigo) throws PersonajeMuertoException {
         System.out.println("Comienza la pelea");
-
+        this.jugador.combatio();
         boolean turnoJugador = true;
         boolean finalizado = false;
         boolean ganaJugador = true;

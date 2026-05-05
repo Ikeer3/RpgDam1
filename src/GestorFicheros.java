@@ -32,7 +32,7 @@ public class GestorFicheros {
     private final static String GUARDADO_NOMBRE_ARCHIVO = "jugador.txt";
 
     private static String personajeAString(Personaje personaje) {
-
+        // TODO: añadir la información de combates
         StringBuilder resultado = new StringBuilder();
         resultado.append(personaje.getNombre()).append("\n");
         resultado.append(personaje.getAtaque()).append("\n");
@@ -89,7 +89,8 @@ public class GestorFicheros {
             }
         }
 
-        resultado = new Personaje(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario);
+        // TODO: recuperar la información de combates.
+        resultado = new Personaje(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,0,0);
         return resultado;
     }
 

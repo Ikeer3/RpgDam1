@@ -20,10 +20,24 @@ public class Personaje {
     private HashSet<String> habilidades;
     private HashMap<String, Integer> inventario;
 
+    // Necesitamos llevar una cuenta de combates para curarnos. Por ello, guardaremos internamente 2 variables:
+    // - Número de combates.
+    // - Número de última curación.
+    // Por ejemplo, si tenemos 10 combates realizados, y nos hemos curado en el combate 8, no nos deja curarnos aún.
+    // Además, esta información también tiene que ir guardada en el fichero de guardado/cargado de partida.
+    // En una partida nueva ambos valores se inicializan a 0.
+    // Finalmente, necesitaremos también una función "combatio()" que sume 1 al número de combates. A esta
+    //  función hay que llamar siempre que se haga un combate.
+
+    private int numeroCombates;
+    private int combateUltimaCuracion;
+
+
     // Este es el constructor para una partida nueva. Hace un personaje a través del constructor que
     // recibe TODOS los parámetros, pero inicializa como vacíos algunos.
     public Personaje(String nombre, int vidaMax, int ataque, int defensa) {
-        this(nombre, vidaMax, vidaMax, ataque, defensa, 1, 0, new HashSet<String>(), new HashMap<String, Integer>());
+        this(nombre, vidaMax, vidaMax, ataque, defensa, 1, 0, new HashSet<String>(), new HashMap<String, Integer>(),0,0);
+
     }
 
     // Inicializa un personaje de nivel 1.
@@ -33,7 +47,7 @@ public class Personaje {
 
     // Constructor para hacer un personaje a partir de los datos que tenemos guardados del mismo.
     public Personaje(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia,
-    HashSet<String> habilidades, HashMap<String, Integer> inventario) {
+    HashSet<String> habilidades, HashMap<String, Integer> inventario, int numeroCombates, int combateUltimaCuracion) {
         this.nombre = nombre;
         this.vida = vida;
         this.vidaMax = vidaMax;
@@ -43,6 +57,8 @@ public class Personaje {
         this.experiencia = experiencia;
         this.habilidades = habilidades;
         this.inventario = inventario;
+        this.numeroCombates = numeroCombates;
+        this.combateUltimaCuracion = combateUltimaCuracion;
     }
 
     // =========================
@@ -236,4 +252,24 @@ public class Personaje {
         System.out.println(getNombre() + " recibe " + danho + " de daño.");
         vida -= danho;
     }
+
+    public void curar() throws NoSePuedeCurarException{
+        if (numeroCombates-combateUltimaCuracion<3) {
+            throw new NoSePuedeCurarException(combateUltimaCuracion, numeroCombates);
+        } else {
+            int curacion = vidaMax/2;
+            vida = Math.min(vidaMax, vida + curacion);
+            System.out.println(getNombre() + " se cura. Tiene ahora: " + vida + " de vida.");
+        }
+    }
+
+    // Métodos extra
+
+    /**
+     * Hay que llamar a este métod cada vez que se hace un combate.
+     */
+    public void combatio() {
+        numeroCombates++;
+    }
+
 }
