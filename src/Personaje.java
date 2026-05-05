@@ -4,9 +4,9 @@ import java.util.Set;
 
 public class Personaje {
 
-    private final static int VIDA_INICIAL = 100;
-    private final static int ATAQUE_INICIAL = 10;
-    private final static int DEFENSA_INICIAL = 10;
+    protected final static int VIDA_INICIAL = 100;
+    protected final static int ATAQUE_INICIAL = 10;
+    protected final static int DEFENSA_INICIAL = 10;
 
     private String nombre;
     private int vida;

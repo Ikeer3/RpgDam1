@@ -15,7 +15,8 @@ public class Arquero extends Personaje {
     }
 
     public Arquero(String nombre) {
-        super(nombre);
+        // Inicializamos el arquero con algo más de ataque que los valores por defecto
+        super(nombre, Personaje.VIDA_INICIAL, (int) Math.ceil(Personaje.ATAQUE_INICIAL * 1.1d) , Personaje.DEFENSA_INICIAL);
     }
 
     @Override

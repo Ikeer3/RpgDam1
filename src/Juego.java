@@ -35,8 +35,35 @@ public class Juego {
     private Scanner sc;
 
     public Juego() {
-        this.jugador = new Personaje("Jugador", 100, 20, 10);
+
+
         this.sc = new Scanner(System.in);
+        int opcion = 0;
+        while (opcion < 1 ||opcion > 3) {
+            try {
+                System.out.println("Elige tu clase: Guerrero (1), Mago (2), Arquero (3)");
+                opcion = sc.nextInt();
+                if (opcion<1 || opcion>3) {
+                    System.out.println("Selecciona una opción válida");
+                }
+            } catch (Exception e) {
+                System.out.println("Selecciona una opción válida");
+            }
+
+        }
+        String nombre = "Jugador";
+        Personaje jugador;
+        if (opcion==1) {
+            jugador = new Guerrero(nombre);
+        } else if (opcion == 2) {
+            jugador = new Mago(nombre);
+        } else {
+            jugador = new Arquero(nombre);
+        }
+
+        // Alternativamente, podemos inicializar nuestro personaje así:
+        //jugador = opcion == 1 ? new Guerrero(nombre) : opcion==2 ? new Mago(nombre) : new Arquero(nombre);
+
         this.enemigos = new ArrayList<Enemigo>();
     }
 

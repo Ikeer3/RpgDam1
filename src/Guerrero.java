@@ -14,7 +14,8 @@ public class Guerrero extends Personaje {
     }
 
     public Guerrero(String nombre) {
-        super(nombre);
+        // Inicializamos el guerrero con más vida
+        super(nombre, (int) Math.ceil(Personaje.VIDA_INICIAL * 1.1d), Personaje.ATAQUE_INICIAL , Personaje.DEFENSA_INICIAL);
     }
 
     @Override
