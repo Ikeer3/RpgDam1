@@ -1,0 +1,31 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Random;
+
+/**
+ * El mago puede usar su magia para esquivar ataques. Esquiva el 20% de los ataques.
+ */
+public class Mago extends Personaje {
+    public Mago(String nombre, int vidaMax, int ataque, int defensa) {
+        super(nombre, vidaMax, ataque, defensa);
+    }
+
+    public Mago(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario) {
+        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario);
+    }
+
+    public Mago(String nombre) {
+        super(nombre);
+    }
+
+    @Override
+    public void recibirDanho(int cantidad) {
+        Random random = new Random();
+        boolean esquiva = random.nextInt(10) <=1; // Esquiva sacando 0 o 1, no esquiva sacando 2, 3, ..., 9
+        if (esquiva) {
+            System.out.println(getNombre() + " esquiva el ataque!");
+        } else {
+            super.recibirDanho(cantidad);
+        }
+    }
+}

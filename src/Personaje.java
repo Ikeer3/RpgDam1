@@ -4,6 +4,10 @@ import java.util.Set;
 
 public class Personaje {
 
+    private final static int VIDA_INICIAL = 100;
+    private final static int ATAQUE_INICIAL = 10;
+    private final static int DEFENSA_INICIAL = 10;
+
     private String nombre;
     private int vida;
     private int vidaMax;
@@ -20,6 +24,11 @@ public class Personaje {
     // recibe TODOS los parámetros, pero inicializa como vacíos algunos.
     public Personaje(String nombre, int vidaMax, int ataque, int defensa) {
         this(nombre, vidaMax, vidaMax, ataque, defensa, 1, 0, new HashSet<String>(), new HashMap<String, Integer>());
+    }
+
+    // Inicializa un personaje de nivel 1.
+    public Personaje(String nombre) {
+        this(nombre, VIDA_INICIAL, ATAQUE_INICIAL, DEFENSA_INICIAL );
     }
 
     // Constructor para hacer un personaje a partir de los datos que tenemos guardados del mismo.
