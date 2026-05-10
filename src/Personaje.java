@@ -105,6 +105,7 @@ public class Personaje {
     public void ganarExperiencia(int cantidad) {
         // Habría que comprobar que la experiencia es positiva, pero no se ha pedido en el enunciado.
         // Como solución, no daremos error, simplemente no sumamos si es negativa.
+
         experiencia += Math.max(0,cantidad);
     }
 
@@ -259,6 +260,7 @@ public class Personaje {
         } else {
             int curacion = vidaMax/2;
             vida = Math.min(vidaMax, vida + curacion);
+            combateUltimaCuracion = numeroCombates;
             System.out.println(getNombre() + " se cura. Tiene ahora: " + vida + " de vida.");
         }
     }

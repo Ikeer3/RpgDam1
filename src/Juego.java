@@ -103,6 +103,8 @@ public class Juego {
                 case 8:
                     cargarPersonaje();
                     break;
+                case 9:
+                    curarPersonaje();
                 case 0:
                     System.out.println("Saliendo...");
                     break;
@@ -112,6 +114,7 @@ public class Juego {
 
         } while (opcion != 0);
     }
+
 
     private void mostrarMenu() {
         System.out.println();
@@ -124,6 +127,7 @@ public class Juego {
         System.out.println("6. Ver enemigos encontrados");
         System.out.println("7. Guardar personaje");
         System.out.println("8. Cargar personaje");
+        System.out.println("9. Curar");
         System.out.println("0. Salir");
         System.out.print("Elige opción: ");
     }
@@ -208,5 +212,10 @@ public class Juego {
             jugador.ganarExperiencia(enemigo.getVidaMaxima());
         }
         return ganaJugador;
+    }
+
+
+    private void curarPersonaje() {
+        jugador.curar();
     }
 }

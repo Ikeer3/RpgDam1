@@ -1,4 +1,4 @@
-public class NoSePuedeCurarException extends RuntimeException {
+public class NoSePuedeCurarException extends Exception {
     private int combateUltimaCuracion;
     private int combatesTotales;
 

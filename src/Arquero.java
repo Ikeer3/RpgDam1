@@ -11,7 +11,7 @@ public class Arquero extends Personaje {
     }
 
     public Arquero(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario) {
-        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario);
+        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, 0, 0);
     }
 
     public Arquero(String nombre) {
