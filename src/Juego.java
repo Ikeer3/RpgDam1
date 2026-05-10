@@ -51,6 +51,10 @@ public class Juego {
             }
 
         }
+        // tras tener la opción seleccionada, consumimos lo que queda en el buffer
+        if (sc.hasNextLine()) {
+            sc.nextLine();
+        }
         String nombre = "Jugador";
         if (opcion==1) {
             this.jugador = new Guerrero(nombre);
@@ -70,6 +74,8 @@ public class Juego {
         int opcion;
 
         do {
+            System.out.println("Pulsa una tecla para continuar");
+            sc.nextLine();
             mostrarMenu();
             opcion = sc.nextInt();
             sc.nextLine();
