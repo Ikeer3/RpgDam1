@@ -22,8 +22,11 @@ public class GestorFicheros {
     private final static int LINEA_NIVEL = 4;
     private final static int LINEA_VIDA = 5;
     private final static int LINEA_VIDA_MAX = 6;
-    private final static int LINEA_HABILIDADES = 7;
-    private final static int LINEA_INVENTARIO = 8;
+    private final static int LINEA_CLASE = 7;
+    private final static int LINEA_COMBATES = 8;
+    private final static int LINEA_ULTIMA_CURACION = 9;
+    private final static int LINEA_HABILIDADES = 10;
+    private final static int LINEA_INVENTARIO = 11;
 
     // Decidimos usar un directorio temporal. Esto nos dará /tmp en Linux, C:\tmp en Windows. En MAC, asigno directamente /tmp, ya que esta variable da un directorio temporal diferente.
     private final static String GUARDADO_DIRECTORIO_JUEGO =
@@ -32,7 +35,6 @@ public class GestorFicheros {
     private final static String GUARDADO_NOMBRE_ARCHIVO = "jugador.txt";
 
     private static String personajeAString(Personaje personaje) {
-        // TODO: añadir la información de combates
         StringBuilder resultado = new StringBuilder();
         resultado.append(personaje.getNombre()).append("\n");
         resultado.append(personaje.getAtaque()).append("\n");
@@ -41,6 +43,9 @@ public class GestorFicheros {
         resultado.append(personaje.getNivel()).append("\n");
         resultado.append(personaje.getVida()).append("\n");
         resultado.append(personaje.getVidaMax()).append("\n");
+        resultado.append(personaje.getClase()).append("\n");
+        resultado.append(personaje.getNumeroCombates()).append("\n");
+        resultado.append(personaje.getCombateUltimaCuracion()).append("\n");
 
         for (String habilidad: personaje.getHabilidades()) {
             resultado.append(habilidad).append(",");
@@ -64,6 +69,9 @@ public class GestorFicheros {
         int vidaMax = Integer.parseInt(lineas[LINEA_VIDA_MAX]);
         int experiencia = Integer.parseInt(lineas[LINEA_EXPERIENCIA]);
         int nivel = Integer.parseInt(lineas[LINEA_NIVEL]);
+        String clase = lineas[LINEA_CLASE];
+        int combates = Integer.parseInt(lineas[LINEA_COMBATES]);
+        int combateUltimaCuracion = Integer.parseInt(lineas[LINEA_ULTIMA_CURACION]);
 
         // Ahora, construimos las habilidades
         HashSet<String> habilidades = new HashSet<String>();
@@ -89,8 +97,31 @@ public class GestorFicheros {
             }
         }
 
-        // TODO: recuperar la información de combates y de la clase de personaje.
-        resultado = new Personaje(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,0,0, null);
+        switch (clase) {
+            case Personaje.NOMBRE_CLASE:
+            {
+                resultado = new Personaje(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,combates,combateUltimaCuracion, clase);
+                break;
+            }
+            case Arquero.NOMBRE_CLASE:
+            {
+                resultado = new Arquero(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,combates,combateUltimaCuracion);
+                break;
+            }
+            case Guerrero.NOMBRE_CLASE:
+            {
+                resultado = new Guerrero(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,combates,combateUltimaCuracion);
+                break;
+            }
+            case Mago.NOMBRE_CLASE:
+            {
+                resultado = new Mago(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,combates,combateUltimaCuracion);
+                break;
+            }
+            default:
+                resultado = new Personaje(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,combates,combateUltimaCuracion, clase);
+                break;
+        }
         return resultado;
     }
 

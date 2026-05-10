@@ -7,14 +7,14 @@ import java.util.Random;
  */
 public class Mago extends Personaje {
 
-    private final static String NOMBRE_CLASE = "Mago";
+    public final static String NOMBRE_CLASE = "Mago";
 
     public Mago(String nombre, int vidaMax, int ataque, int defensa) {
         super(nombre, vidaMax, ataque, defensa, NOMBRE_CLASE);
     }
 
-    public Mago(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario) {
-        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, 0, 0, NOMBRE_CLASE);
+    public Mago(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario, int numeroCombates, int combateUltimaCuracion) {
+        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, numeroCombates, combateUltimaCuracion, NOMBRE_CLASE);
     }
 
     public Mago(String nombre) {

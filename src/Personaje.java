@@ -7,7 +7,7 @@ public class Personaje {
     protected final static int VIDA_INICIAL = 100;
     protected final static int ATAQUE_INICIAL = 10;
     protected final static int DEFENSA_INICIAL = 10;
-    private final static String CLASE = "Genérico";
+    public final static String NOMBRE_CLASE = "Genérico";
 
     private String nombre;
     private int vida;
@@ -48,7 +48,7 @@ public class Personaje {
 
     // Inicializa un personaje de nivel 1.
     public Personaje(String nombre) {
-        this(nombre, CLASE );
+        this(nombre, NOMBRE_CLASE );
     }
 
     // Constructor para hacer un personaje a partir de los datos que tenemos guardados del mismo.
@@ -65,7 +65,7 @@ public class Personaje {
         this.inventario = inventario;
         this.numeroCombates = numeroCombates;
         this.combateUltimaCuracion = combateUltimaCuracion;
-        this.clase = clase == null ? CLASE:clase;
+        this.clase = clase == null ? NOMBRE_CLASE:clase;
     }
 
     // =========================
@@ -119,10 +119,10 @@ public class Personaje {
     }
 
     public void atacar(Enemigo enemigo) throws PersonajeMuertoException {
-        System.out.println(getNombre() + " hace " + ataque + " a " + enemigo.getNombre());
         if (vida<=0) {
             throw new PersonajeMuertoException();
         } else {
+            System.out.println(getNombre() + " hace " + ataque + " a " + enemigo.getNombre());
             enemigo.recibirDanio(ataque);
         }
     }
@@ -283,7 +283,15 @@ public class Personaje {
         numeroCombates++;
     }
 
-    private String getClase() {
+    public int getNumeroCombates() {
+        return numeroCombates;
+    }
+
+    public int getCombateUltimaCuracion() {
+        return combateUltimaCuracion;
+    }
+
+    public String getClase() {
         return clase;
     }
 

@@ -6,14 +6,14 @@ import java.util.HashSet;
  */
 public class Guerrero extends Personaje {
 
-    private final static String NOMBRE_CLASE = "Guerrero";
+    public final static String NOMBRE_CLASE = "Guerrero";
 
     public Guerrero(String nombre, int vidaMax, int ataque, int defensa) {
         super(nombre, vidaMax, ataque, defensa, NOMBRE_CLASE);
     }
 
-    public Guerrero(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario) {
-        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, 0, 0, NOMBRE_CLASE);
+    public Guerrero(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario, int numeroCombates, int combateUltimaCuracion) {
+        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, numeroCombates, combateUltimaCuracion, NOMBRE_CLASE);
     }
 
     public Guerrero(String nombre) {

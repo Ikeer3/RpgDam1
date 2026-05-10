@@ -7,14 +7,14 @@ import java.util.Random;
  */
 public class Arquero extends Personaje {
 
-    private final static String NOMBRE_CLASE = "Arquero";
+    public final static String NOMBRE_CLASE = "Arquero";
 
     public Arquero(String nombre, int vidaMax, int ataque, int defensa) {
         super(nombre, vidaMax, ataque, defensa, NOMBRE_CLASE);
     }
 
-    public Arquero(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario) {
-        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, 0, 0, NOMBRE_CLASE);
+    public Arquero(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario, int numeroCombates, int combateUltimaCuracion) {
+        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, numeroCombates, combateUltimaCuracion, NOMBRE_CLASE);
     }
 
     public Arquero(String nombre) {
@@ -24,10 +24,10 @@ public class Arquero extends Personaje {
 
     @Override
     public void atacar(Enemigo enemigo) throws PersonajeMuertoException {
-        System.out.println(getNombre() + " ataca a " + enemigo.getNombre()+ ". ");
         if (getVida()<=0) {
             throw new PersonajeMuertoException();
         } else {
+            System.out.println(getNombre() + " ataca a " + enemigo.getNombre()+ ". ");
             Random random = new Random();
             boolean esCritico = random.nextInt(10)==0;
             if (esCritico) {
