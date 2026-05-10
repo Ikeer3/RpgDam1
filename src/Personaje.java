@@ -7,6 +7,7 @@ public class Personaje {
     protected final static int VIDA_INICIAL = 100;
     protected final static int ATAQUE_INICIAL = 10;
     protected final static int DEFENSA_INICIAL = 10;
+    private final static String CLASE = "Genérico";
 
     private String nombre;
     private int vida;
@@ -15,6 +16,7 @@ public class Personaje {
     private int defensa;
     private int nivel;
     private int experiencia;
+    private String clase;
 
     // Podríamos declararlos como Set y Map, pero hasta que veamos interfaces no lo haremos
     private HashSet<String> habilidades;
@@ -35,19 +37,23 @@ public class Personaje {
 
     // Este es el constructor para una partida nueva. Hace un personaje a través del constructor que
     // recibe TODOS los parámetros, pero inicializa como vacíos algunos.
-    public Personaje(String nombre, int vidaMax, int ataque, int defensa) {
-        this(nombre, vidaMax, vidaMax, ataque, defensa, 1, 0, new HashSet<String>(), new HashMap<String, Integer>(),0,0);
+    public Personaje(String nombre, int vidaMax, int ataque, int defensa, String clase) {
+        this(nombre, vidaMax, vidaMax, ataque, defensa, 1, 0, new HashSet<String>(), new HashMap<String, Integer>(),0,0, clase);
+    }
 
+    // Inicializa un personaje de nivel 1.
+    public Personaje(String nombre, String clase) {
+        this(nombre, VIDA_INICIAL, ATAQUE_INICIAL, DEFENSA_INICIAL, clase );
     }
 
     // Inicializa un personaje de nivel 1.
     public Personaje(String nombre) {
-        this(nombre, VIDA_INICIAL, ATAQUE_INICIAL, DEFENSA_INICIAL );
+        this(nombre, CLASE );
     }
 
     // Constructor para hacer un personaje a partir de los datos que tenemos guardados del mismo.
     public Personaje(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia,
-    HashSet<String> habilidades, HashMap<String, Integer> inventario, int numeroCombates, int combateUltimaCuracion) {
+    HashSet<String> habilidades, HashMap<String, Integer> inventario, int numeroCombates, int combateUltimaCuracion, String clase) {
         this.nombre = nombre;
         this.vida = vida;
         this.vidaMax = vidaMax;
@@ -59,6 +65,7 @@ public class Personaje {
         this.inventario = inventario;
         this.numeroCombates = numeroCombates;
         this.combateUltimaCuracion = combateUltimaCuracion;
+        this.clase = clase == null ? CLASE:clase;
     }
 
     // =========================
@@ -82,16 +89,18 @@ public class Personaje {
         // Opcionalmente, podríamos ponerlo más bonito eliminando el " - " que añadimos al final (si lo hemos añadido)
 
 
-        System.out.println("Personaje: " +
+        System.out.println("Personaje - " + clase + " - " +
                 "\tNombre:'" + nombre + '\'' +
                 "\n\tVida=" + vida +
-                "\n\tVidaMax=" + vidaMax +
+                " de " + vidaMax +
                 "\n\tAtaque=" + ataque +
                 "\n\tDefensa=" + defensa +
                 "\n\tNivel=" + nivel +
                 "\n\tExperiencia=" + experiencia +
                 "\n\tHabilidades=" + habilidadesEnString.toString() +
-                "\n\tInventario=" + inventarioEnString.toString());
+                "\n\tInventario=" + inventarioEnString.toString() +
+                "\n\tCombates=" + numeroCombates +
+                "\n\tCombates última curación=" + combateUltimaCuracion);
     }
 
     public void descansar() throws VidaYaCompletaException {
@@ -272,6 +281,10 @@ public class Personaje {
      */
     public void combatio() {
         numeroCombates++;
+    }
+
+    private String getClase() {
+        return clase;
     }
 
 }

@@ -3,7 +3,7 @@ public class TestIntegracionBasica {
     public static void main(String[] args) {
         System.out.println("=== TEST INTEGRACIÓN BÁSICA ===");
 
-        Personaje p = new Personaje("Tanjiro", 100, 22, 10);
+        Personaje p = new Personaje("Tanjiro", 100, 22, 10, null);
         Enemigo e = new Enemigo("Demonio menor", 35, 9);
 
         p.anhadirHabilidad("Respiracion del agua");

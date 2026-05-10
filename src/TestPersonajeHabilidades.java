@@ -3,7 +3,7 @@ public class TestPersonajeHabilidades {
     public static void main(String[] args) {
         System.out.println("=== TEST HABILIDADES ===");
 
-        Personaje p = new Personaje("Naruto", 100, 20, 10);
+        Personaje p = new Personaje("Naruto", 100, 20, 10, null);
 
         p.anhadirHabilidad("Rasengan");
         p.anhadirHabilidad("Clones");

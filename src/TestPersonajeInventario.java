@@ -3,7 +3,7 @@ public class TestPersonajeInventario {
     public static void main(String[] args) {
         System.out.println("=== TEST INVENTARIO ===");
 
-        Personaje p = new Personaje("Luffy", 120, 25, 8);
+        Personaje p = new Personaje("Luffy", 120, 25, 8, null);
 
         p.anhadirObjeto("Pocion", 2);
         p.anhadirObjeto("Pocion", 3);

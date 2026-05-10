@@ -3,7 +3,7 @@ public class TestPersonajeDescanso {
     public static void main(String[] args) {
         System.out.println("=== TEST DESCANSO ===");
 
-        Personaje p = new Personaje("Goku", 100, 30, 15);
+        Personaje p = new Personaje("Goku", 100, 30, 15, null);
 
         System.out.println("Estado inicial:");
         p.mostrarEstado();

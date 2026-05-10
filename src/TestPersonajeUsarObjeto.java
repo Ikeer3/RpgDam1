@@ -3,7 +3,7 @@ public class TestPersonajeUsarObjeto {
     public static void main(String[] args) {
         System.out.println("=== TEST USAR OBJETO ===");
 
-        Personaje p = new Personaje("Ichigo", 100, 18, 12);
+        Personaje p = new Personaje("Ichigo", 100, 18, 12, null);
 
         p.anhadirObjeto("Pocion", 2);
 

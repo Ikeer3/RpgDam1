@@ -89,8 +89,8 @@ public class GestorFicheros {
             }
         }
 
-        // TODO: recuperar la información de combates.
-        resultado = new Personaje(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,0,0);
+        // TODO: recuperar la información de combates y de la clase de personaje.
+        resultado = new Personaje(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario,0,0, null);
         return resultado;
     }
 

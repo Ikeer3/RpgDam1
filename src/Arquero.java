@@ -6,17 +6,20 @@ import java.util.Random;
  * El arquero es capaz de provocar impactos críticos un 10% de las veces
  */
 public class Arquero extends Personaje {
+
+    private final static String NOMBRE_CLASE = "Arquero";
+
     public Arquero(String nombre, int vidaMax, int ataque, int defensa) {
-        super(nombre, vidaMax, ataque, defensa);
+        super(nombre, vidaMax, ataque, defensa, NOMBRE_CLASE);
     }
 
     public Arquero(String nombre, int vida, int vidaMax, int ataque, int defensa, int nivel, int experiencia, HashSet<String> habilidades, HashMap<String, Integer> inventario) {
-        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, 0, 0);
+        super(nombre, vida, vidaMax, ataque, defensa, nivel, experiencia, habilidades, inventario, 0, 0, NOMBRE_CLASE);
     }
 
     public Arquero(String nombre) {
         // Inicializamos el arquero con algo más de ataque que los valores por defecto
-        super(nombre, Personaje.VIDA_INICIAL, (int) Math.ceil(Personaje.ATAQUE_INICIAL * 1.1d) , Personaje.DEFENSA_INICIAL);
+        super(nombre, Personaje.VIDA_INICIAL, (int) Math.ceil(Personaje.ATAQUE_INICIAL * 1.1d) , Personaje.DEFENSA_INICIAL, NOMBRE_CLASE);
     }
 
     @Override
