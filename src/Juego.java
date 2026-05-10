@@ -104,7 +104,12 @@ public class Juego {
                     cargarPersonaje();
                     break;
                 case 9:
-                    curarPersonaje();
+                    try {
+                        jugador.curar();
+                    } catch (NoSePuedeCurarException nspce) {
+                        System.out.println("No se puede curar. El personaje lleva " + nspce.getCombatesTotales() + " combates, y se ha curado en el combate " + nspce.getCombateUltimaCuracion());
+                    }
+                    break;
                 case 0:
                     System.out.println("Saliendo...");
                     break;
@@ -214,8 +219,4 @@ public class Juego {
         return ganaJugador;
     }
 
-
-    private void curarPersonaje() {
-        jugador.curar();
-    }
 }
