@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class Personaje {
@@ -8,6 +9,7 @@ public class Personaje {
     protected final static int ATAQUE_INICIAL = 10;
     protected final static int DEFENSA_INICIAL = 10;
     public final static String NOMBRE_CLASE = "Genérico";
+    private final static int EXPERIENCIA_SUBIR_NIVEL = 200;
 
     private String nombre;
     private int vida;
@@ -114,8 +116,26 @@ public class Personaje {
     public void ganarExperiencia(int cantidad) {
         // Habría que comprobar que la experiencia es positiva, pero no se ha pedido en el enunciado.
         // Como solución, no daremos error, simplemente no sumamos si es negativa.
+        // Vamos a subir de nivel primero con 200 puntos de experiencia
 
         experiencia += Math.max(0,cantidad);
+        int nivelTrasGanar = experiencia/EXPERIENCIA_SUBIR_NIVEL + 1; // 190 exp: nivel 1; 250; nivel 2, etc.
+        if (nivelTrasGanar > nivel) {
+            System.out.println("Has subido de nivel! Tu nivel ahora es " + nivelTrasGanar);
+            // por si acaso se ha ganado mucha experiencia como para subir 2 niveles, hacemos un bucle para ir desde el nivel antiguo hasta el de ahora
+            Random rand = new Random();
+            for (int n=nivel; n<nivelTrasGanar; n++) {
+                vidaMax += rand.nextInt(10,21);
+                System.out.println("Vida máxima pasa a " + vidaMax);
+                ataque += 10;
+                System.out.println("Ataque pasa a " + ataque);
+                System.out.println("Recupera toda la vida!");
+                vida = vidaMax;
+            }
+        }
+        nivel = nivelTrasGanar;
+
+
     }
 
     public void atacar(Enemigo enemigo) throws PersonajeMuertoException {
