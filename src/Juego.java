@@ -209,7 +209,7 @@ public class Juego {
                     System.out.println("El jugador ha ganado! Le queda de vida: " + jugador.getVida());
                 }
             } else {
-                jugador.recibirDanho(enemigo.getAtaque());
+                jugador.recibirDanho(enemigo.atacar());
                 if (jugador.getVida()<=0) {
                     System.out.println("El jugador ha perdido!");
                     finalizado = true;
