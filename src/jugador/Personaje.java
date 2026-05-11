@@ -18,6 +18,7 @@ public class Personaje {
     protected final static int DEFENSA_INICIAL = 10;
     public final static String NOMBRE_CLASE = "Genérico";
     private final static int EXPERIENCIA_SUBIR_NIVEL = 200;
+    private final static int PORCENTAJE_DESCANSO_INTERRUMPIDO = 25;
 
     private String nombre;
     private int vida;
@@ -113,11 +114,22 @@ public class Personaje {
                 "\n\tCombates última curación=" + combateUltimaCuracion);
     }
 
-    public void descansar() throws VidaYaCompletaException {
-        if (vida==vidaMax) {
-            throw new VidaYaCompletaException(vida);
+    /**
+     * Recupera la vida completa del jugador.
+     * @return true si pudo descansar (no hubo interrupciones).
+     * @throws VidaYaCompletaException
+     */
+    public boolean descansar() throws VidaYaCompletaException {
+        boolean descansoInterrumpido = new Random().nextInt(100)<PORCENTAJE_DESCANSO_INTERRUMPIDO;
+        if (descansoInterrumpido) {
+            return false ;
         } else {
-            vida = vidaMax;
+            if (vida == vidaMax) {
+                throw new VidaYaCompletaException(vida);
+            } else {
+                vida = vidaMax;
+            }
+            return true;
         }
     }
 

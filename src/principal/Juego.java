@@ -1,5 +1,9 @@
 package principal;
 
+import enemigos.Demonio;
+import enemigos.Espectro;
+import enemigos.Zombie;
+import excepciones.TipoEnemigoDesconocido;
 import jugador.Arquero;
 import jugador.Guerrero;
 import jugador.Mago;
@@ -97,6 +101,7 @@ public class Juego {
                     break;
                 case 2:
                     Enemigo aEnfrentar = buscarEnemigo();
+                    enemigos.add(aEnfrentar);
                     try {
                         combatir(aEnfrentar);
                     } catch (PersonajeMuertoException pme) {
@@ -160,6 +165,39 @@ public class Juego {
         System.out.print("Elige opción: ");
     }
 
+    /**
+     * Esta función recupera un enemigo pasado y devuelve su siguiente evolución.
+     * Si no hay evolución (no hay nada más alto que demonio), devuelve una nueva copia del demonio.
+     * Si no puede devolver ninguno, genera un enemigo básico nuevo. .
+     * @return
+     */
+    private Enemigo generarEnemigoPasado() throws TipoEnemigoDesconocido {
+        Random rand = new Random();
+        Enemigo resultado = null;
+        if (enemigos.size()>0) {
+            Enemigo original = enemigos.get(rand.nextInt(enemigos.size()));
+            switch (original.getTipo()) {
+                case Enemigo.TIPO_BASICO:
+                    resultado = new Zombie(buscarEnemigo().getNombre(), buscarEnemigo().getVidaMaxima(), buscarEnemigo().getAtaque());
+                    break;
+                case Enemigo.TIPO_ZOMBIE:
+                    resultado = new Espectro(buscarEnemigo().getNombre(), buscarEnemigo().getVidaMaxima(), buscarEnemigo().getAtaque());
+                    break;
+                case Enemigo.TIPO_ESPECTRO:
+                    resultado = new Demonio(buscarEnemigo().getNombre(), buscarEnemigo().getVidaMaxima(), buscarEnemigo().getAtaque());
+                    break;
+                case Enemigo.TIPO_DEMONIO:
+                    resultado = new Demonio(buscarEnemigo().getNombre(), buscarEnemigo().getVidaMaxima(), buscarEnemigo().getAtaque());
+                    break;
+                default:
+                    throw new TipoEnemigoDesconocido(original.getTipo());
+            }
+        } else {
+            resultado = buscarEnemigo();
+        }
+        return resultado;
+
+    }
 
     private Enemigo buscarEnemigo() {
 
@@ -173,7 +211,6 @@ public class Juego {
                 aleatorio.nextInt(ENEMIGO_VIDA_MINIMA, ENEMIGO_VIDA_MAXIMA+1),
                 aleatorio.nextInt(ENEMIGO_ATAQUE_MINIMO, ENEMIGO_ATAQUE_MAXIMO+1)
                 );
-        enemigos.add(enemigo);
         System.out.println("Has encontrado a un enemigo:");
         enemigo.mostrarInfo();
         return enemigo;
