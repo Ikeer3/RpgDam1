@@ -1,3 +1,7 @@
+package Jugador;
+
+import enemigos.Enemigo;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
@@ -91,7 +95,7 @@ public class Personaje {
         // Opcionalmente, podríamos ponerlo más bonito eliminando el " - " que añadimos al final (si lo hemos añadido)
 
 
-        System.out.println("Personaje - " + clase + " - " +
+        System.out.println("Jugador.Personaje - " + clase + " - " +
                 "\tNombre:'" + nombre + '\'' +
                 "\n\tVida=" + vida +
                 " de " + vidaMax +
@@ -283,7 +287,7 @@ public class Personaje {
         vida -= danho;
     }
 
-    public void curar() throws NoSePuedeCurarException{
+    public void curar() throws NoSePuedeCurarException {
         if (numeroCombates-combateUltimaCuracion<3) {
             throw new NoSePuedeCurarException(combateUltimaCuracion, numeroCombates);
         } else {

@@ -1,3 +1,5 @@
+import enemigos.Enemigo;
+
 public class TestEnemigo {
 
     public static void main(String[] args) {

@@ -1,3 +1,5 @@
+package excepciones;
+
 public class NoSePuedeCurarException extends Exception {
     private int combateUltimaCuracion;
     private int combatesTotales;

@@ -26,17 +26,17 @@ El objetivo de esta práctica es trabajar con:
 
 ## Parte 1 — Herencia en el personaje jugador
 
-A partir de la clase `Personaje`, deben crearse al menos tres tipos distintos de personaje jugador.
+A partir de la clase `Jugador.Personaje`, deben crearse al menos tres tipos distintos de personaje jugador.
 
 Ejemplos válidos:
 
-- `Guerrero`
-- `Mago`
-- `Arquero`
+- `Jugador.Guerrero`
+- `Jugador.Mago`
+- `Jugador.Arquero`
 
 Cada clase hija debe:
 
-- heredar de `Personaje`
+- heredar de `Jugador.Personaje`
 - tener un constructor propio
 - inicializar al personaje con valores base diferentes
 - sobrescribir al menos un método de comportamiento (por ejemplo, que tenga más ataque, más defensa...)
@@ -59,13 +59,13 @@ No basta con cambiar únicamente el nombre.
 
 ## Parte 2 — Selección del tipo de personaje
 
-En la clase `Juego`, antes de comenzar la partida, el usuario debe poder elegir el tipo de personaje. Esto requerirá también cambiar cómo se almacenan en disco los personajes.
+En la clase `principal.Juego`, antes de comenzar la partida, el usuario debe poder elegir el tipo de personaje. Esto requerirá también cambiar cómo se almacenan en disco los personajes.
 
 Debe mostrarse un menú inicial similar a este:
 
-1. Guerrero
-2. Mago
-3. Arquero
+1. Jugador.Guerrero
+2. Jugador.Mago
+3. Jugador.Arquero
 
 Según la opción elegida, deberá crearse un objeto del tipo correspondiente.
 
@@ -77,7 +77,7 @@ Debe añadirse al sistema una mecánica de curación.
 
 ### Requisitos
 
-La clase `Personaje` debe incluir un método para curarse. Este método tiene limitaciones: un personaje puede curarse después de llevar una racha de 3 combates ganados, y la racha se reinicia cada vez que se cura.
+La clase `Jugador.Personaje` debe incluir un método para curarse. Este método tiene limitaciones: un personaje puede curarse después de llevar una racha de 3 combates ganados, y la racha se reinicia cada vez que se cura.
 
 Este método debe:
 
@@ -161,7 +161,7 @@ Si el enemigo original ya era un zombie, el nuevo enemigo que generemos con él 
 
 ### Reglas
 
-#### Zombie
+#### enemigos.Zombie
 - estadísticas multiplicadas por 1,2
 - el nombre incluye "zombie"
 
@@ -184,7 +184,7 @@ No es obligatorio implementar generaciones superiores a la primera.
 
 ## Parte 7 — Enemigos y herencia
 
-Es obligatorio aplicar herencia en la jerarquía de enemigos. Por ejemplo, podemos tener la clase `Fantasma` que herede de `Enemigo` y sobreescriba los métodos necesarios (como getNombre()).
+Es obligatorio aplicar herencia en la jerarquía de enemigos. Por ejemplo, podemos tener la clase `Fantasma` que herede de `enemigos.Enemigo` y sobreescriba los métodos necesarios (como getNombre()).
 
 Si se hace, debe aprovecharse realmente la herencia y no limitarse a duplicar código.
 

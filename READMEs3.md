@@ -46,22 +46,22 @@ Ejemplos de situaciones que deben tratarse con excepción:
 
 Se añadirá un sistema de combate simple.
 
-### En la clase `Personaje`
+### En la clase `Jugador.Personaje`
 
 Debes implementar un método que permita atacar a un enemigo.
 
 Ejemplo de método posible:
 
-- `atacar(Enemigo enemigo)`
+- `atacar(enemigos.Enemigo enemigo)`
 
-### En la clase `Enemigo`
+### En la clase `enemigos.Enemigo`
 
 Debes añadir al menos:
 
 - un método para recibir daño
 - un método para comprobar si sigue vivo
 
-### En la clase `Juego`
+### En la clase `principal.Juego`
 
 Debes modificar `buscarEnemigo()` para que, después de generar un enemigo, el jugador pueda combatir contra él.
 

@@ -26,9 +26,9 @@ Se evaluará la capacidad de elegir la estructura adecuada y operar correctament
 
 ---
 
-## Parte 1 — Clase Personaje
+## Parte 1 — Clase Jugador.Personaje
 
-Completar la clase `Personaje`.
+Completar la clase `Jugador.Personaje`.
 
 El personaje debe gestionar:
 
@@ -66,9 +66,9 @@ Condiciones:
 
 ---
 
-## Parte 2 — Clase Enemigo
+## Parte 2 — Clase enemigos.Enemigo
 
-Completar la clase `Enemigo`.
+Completar la clase `enemigos.Enemigo`.
 
 Debe tener:
 
@@ -84,7 +84,7 @@ Implementar el método:
 
 ## Parte 3 — Gestión de enemigos
 
-En la clase `Juego`:
+En la clase `principal.Juego`:
 
 Crear una colección para almacenar enemigos encontrados.
 

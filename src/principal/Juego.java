@@ -1,3 +1,11 @@
+package principal;
+
+import Jugador.Arquero;
+import Jugador.Guerrero;
+import Jugador.Mago;
+import Jugador.Personaje;
+import enemigos.Enemigo;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -41,7 +49,7 @@ public class Juego {
         int opcion = 0;
         while (opcion < 1 ||opcion > 3) {
             try {
-                System.out.println("Elige tu clase: Guerrero (1), Mago (2), Arquero (3)");
+                System.out.println("Elige tu clase: Jugador.Guerrero (1), Jugador.Mago (2), Jugador.Arquero (3)");
                 opcion = sc.nextInt();
                 if (opcion<1 || opcion>3) {
                     System.out.println("Selecciona una opción válida");
@@ -65,7 +73,7 @@ public class Juego {
         }
 
         // Alternativamente, podemos inicializar nuestro personaje así:
-        //this.jugador = opcion == 1 ? new Guerrero(nombre) : opcion==2 ? new Mago(nombre) : new Arquero(nombre);
+        //this.jugador = opcion == 1 ? new Jugador.Guerrero(nombre) : opcion==2 ? new Jugador.Mago(nombre) : new Jugador.Arquero(nombre);
 
         this.enemigos = new ArrayList<Enemigo>();
     }

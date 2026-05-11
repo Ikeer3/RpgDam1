@@ -1,3 +1,10 @@
+package principal;
+
+import Jugador.Arquero;
+import Jugador.Guerrero;
+import Jugador.Mago;
+import Jugador.Personaje;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,7 +18,7 @@ public class GestorFicheros {
     // Además, guardaremos como constantes en qué línea del fichero guardado mantenemos cada campo.
     //
     // NO estamos manejando caracteres especiales (como , o \n); si alguien mete un \n en el contenido de cualquiera
-    // de los atributos de la clase Personaje, esto dejaría de funcionar.
+    // de los atributos de la clase Jugador.Personaje, esto dejaría de funcionar.
     // Una forma de solucionar lo anterior sería NO permitir caracteres especiales en los atributos,
     // o escaparlos en esta clase.
 

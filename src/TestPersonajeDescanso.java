@@ -1,3 +1,6 @@
+import Jugador.Personaje;
+import excepciones.VidaYaCompletaException;
+
 public class TestPersonajeDescanso {
 
     public static void main(String[] args) {

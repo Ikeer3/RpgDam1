@@ -1,3 +1,5 @@
+package excepciones;
+
 public class VidaYaCompletaException extends Exception {
     private int vidaActual;
 

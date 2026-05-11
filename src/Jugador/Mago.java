@@ -1,3 +1,5 @@
+package Jugador;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
@@ -7,7 +9,7 @@ import java.util.Random;
  */
 public class Mago extends Personaje {
 
-    public final static String NOMBRE_CLASE = "Mago";
+    public final static String NOMBRE_CLASE = "Jugador.Mago";
 
     public Mago(String nombre, int vidaMax, int ataque, int defensa) {
         super(nombre, vidaMax, ataque, defensa, NOMBRE_CLASE);

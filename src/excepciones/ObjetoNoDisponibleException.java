@@ -1,3 +1,5 @@
+package excepciones;
+
 public class ObjetoNoDisponibleException extends Exception {
     private String objeto;
 

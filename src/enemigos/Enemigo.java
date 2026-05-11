@@ -1,3 +1,5 @@
+package enemigos;
+
 public class Enemigo {
 
     private String nombre;
@@ -6,9 +8,9 @@ public class Enemigo {
     private int vidaMaxima;
 
     public final static String TIPO_BASICO = "Básico";
-    public final static String TIPO_ZOMBIE = "Zombie";
-    public final static String TIPO_ESPECTRO = "Espectro";
-    public final static String TIPO_DEMONIO = "Demonio";
+    public final static String TIPO_ZOMBIE = "enemigos.Zombie";
+    public final static String TIPO_ESPECTRO = "enemigos.Espectro";
+    public final static String TIPO_DEMONIO = "enemigos.Demonio";
 
     public Enemigo(String nombre, int vida, int ataque) {
         this.nombre = nombre;

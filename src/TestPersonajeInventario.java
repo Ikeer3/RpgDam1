@@ -1,3 +1,6 @@
+import Jugador.Personaje;
+import excepciones.ObjetoNoDisponibleException;
+
 public class TestPersonajeInventario {
 
     public static void main(String[] args) {

@@ -1,3 +1,5 @@
+import Jugador.Personaje;
+
 public class TestPersonajeHabilidades {
 
     public static void main(String[] args) {

@@ -1,17 +1,20 @@
+import Jugador.Personaje;
+import enemigos.Enemigo;
+
 public class TestIntegracionBasica {
 
     public static void main(String[] args) {
         System.out.println("=== TEST INTEGRACIÓN BÁSICA ===");
 
         Personaje p = new Personaje("Tanjiro", 100, 22, 10, null);
-        Enemigo e = new Enemigo("Demonio menor", 35, 9);
+        Enemigo e = new Enemigo("enemigos.Demonio menor", 35, 9);
 
         p.anhadirHabilidad("Respiracion del agua");
         p.anhadirObjeto("Pocion", 1);
 
         boolean test1 = p.tieneHabilidad("Respiracion del agua");
         boolean test2 = p.tieneObjeto("Pocion");
-        boolean test3 = e.getNombre().equals("Demonio menor");
+        boolean test3 = e.getNombre().equals("enemigos.Demonio menor");
 
         if (test1 && test2 && test3) {
             System.out.println("Test de integración básica: OK");
@@ -28,7 +31,7 @@ public class TestIntegracionBasica {
         System.out.println("Inventario:");
         p.mostrarInventario();
 
-        System.out.println("Enemigo:");
+        System.out.println("enemigos.Enemigo:");
         e.mostrarInfo();
     }
 }

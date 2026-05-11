@@ -1,3 +1,7 @@
+package Jugador;
+
+import enemigos.Enemigo;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
@@ -7,7 +11,7 @@ import java.util.Random;
  */
 public class Arquero extends Personaje {
 
-    public final static String NOMBRE_CLASE = "Arquero";
+    public final static String NOMBRE_CLASE = "Jugador.Arquero";
 
     public Arquero(String nombre, int vidaMax, int ataque, int defensa) {
         super(nombre, vidaMax, ataque, defensa, NOMBRE_CLASE);
