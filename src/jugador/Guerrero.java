@@ -8,7 +8,7 @@ import java.util.HashSet;
  */
 public class Guerrero extends Personaje {
 
-    public final static String NOMBRE_CLASE = "Jugador.Guerrero";
+    public final static String NOMBRE_CLASE = "Guerrero";
 
     public Guerrero(String nombre, int vidaMax, int ataque, int defensa) {
         super(nombre, vidaMax, ataque, defensa, NOMBRE_CLASE);
