@@ -96,7 +96,12 @@ public class Juego {
                     jugador.mostrarEstado();
                     break;
                 case 2:
-                    buscarEnemigo();
+                    Enemigo aEnfrentar = buscarEnemigo();
+                    try {
+                        combatir(aEnfrentar);
+                    } catch (PersonajeMuertoException pme) {
+                        System.out.println("No puedes atacar! Tu pj está muerto.");
+                    }
                     break;
                 case 3:
                     try {
@@ -156,7 +161,7 @@ public class Juego {
     }
 
 
-    private void buscarEnemigo() {
+    private Enemigo buscarEnemigo() {
 
         // Para crear un enemigo aleatorio, vamos a usar 2 arrays de nombre y alias (constantes) para generar nombres aleatorios
         // Además, vamos a usar límites superiores e inferiores para el ataque y la vida, para que también sean aleatorios..
@@ -171,12 +176,7 @@ public class Juego {
         enemigos.add(enemigo);
         System.out.println("Has encontrado a un enemigo:");
         enemigo.mostrarInfo();
-
-        try {
-            combatir(enemigo);
-        } catch (PersonajeMuertoException pme) {
-            System.out.println("No puedes atacar! Tu pj está muerto.");
-        }
+        return enemigo;
     }
 
     private void mostrarEnemigosEncontrados() {
