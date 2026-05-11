@@ -26,17 +26,17 @@ El objetivo de esta práctica es trabajar con:
 
 ## Parte 1 — Herencia en el personaje jugador
 
-A partir de la clase `Jugador.Personaje`, deben crearse al menos tres tipos distintos de personaje jugador.
+A partir de la clase `jugador.Personaje`, deben crearse al menos tres tipos distintos de personaje jugador.
 
 Ejemplos válidos:
 
-- `Jugador.Guerrero`
-- `Jugador.Mago`
-- `Jugador.Arquero`
+- `jugador.Guerrero`
+- `jugador.Mago`
+- `jugador.Arquero`
 
 Cada clase hija debe:
 
-- heredar de `Jugador.Personaje`
+- heredar de `jugador.Personaje`
 - tener un constructor propio
 - inicializar al personaje con valores base diferentes
 - sobrescribir al menos un método de comportamiento (por ejemplo, que tenga más ataque, más defensa...)
@@ -63,9 +63,9 @@ En la clase `principal.Juego`, antes de comenzar la partida, el usuario debe pod
 
 Debe mostrarse un menú inicial similar a este:
 
-1. Jugador.Guerrero
-2. Jugador.Mago
-3. Jugador.Arquero
+1. jugador.Guerrero
+2. jugador.Mago
+3. jugador.Arquero
 
 Según la opción elegida, deberá crearse un objeto del tipo correspondiente.
 
@@ -77,7 +77,7 @@ Debe añadirse al sistema una mecánica de curación.
 
 ### Requisitos
 
-La clase `Jugador.Personaje` debe incluir un método para curarse. Este método tiene limitaciones: un personaje puede curarse después de llevar una racha de 3 combates ganados, y la racha se reinicia cada vez que se cura.
+La clase `jugador.Personaje` debe incluir un método para curarse. Este método tiene limitaciones: un personaje puede curarse después de llevar una racha de 3 combates ganados, y la racha se reinicia cada vez que se cura.
 
 Este método debe:
 

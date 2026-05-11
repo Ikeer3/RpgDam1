@@ -26,9 +26,9 @@ Se evaluará la capacidad de elegir la estructura adecuada y operar correctament
 
 ---
 
-## Parte 1 — Clase Jugador.Personaje
+## Parte 1 — Clase jugador.Personaje
 
-Completar la clase `Jugador.Personaje`.
+Completar la clase `jugador.Personaje`.
 
 El personaje debe gestionar:
 

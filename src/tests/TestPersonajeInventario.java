@@ -1,4 +1,6 @@
-import Jugador.Personaje;
+package tests;
+
+import jugador.Personaje;
 import excepciones.ObjetoNoDisponibleException;
 
 public class TestPersonajeInventario {

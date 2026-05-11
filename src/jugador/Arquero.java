@@ -1,6 +1,7 @@
-package Jugador;
+package jugador;
 
 import enemigos.Enemigo;
+import excepciones.PersonajeMuertoException;
 
 import java.util.HashMap;
 import java.util.HashSet;

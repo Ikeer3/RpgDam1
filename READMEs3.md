@@ -46,7 +46,7 @@ Ejemplos de situaciones que deben tratarse con excepción:
 
 Se añadirá un sistema de combate simple.
 
-### En la clase `Jugador.Personaje`
+### En la clase `jugador.Personaje`
 
 Debes implementar un método que permita atacar a un enemigo.
 

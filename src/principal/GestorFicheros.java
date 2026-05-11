@@ -1,9 +1,9 @@
 package principal;
 
-import Jugador.Arquero;
-import Jugador.Guerrero;
-import Jugador.Mago;
-import Jugador.Personaje;
+import jugador.Arquero;
+import jugador.Guerrero;
+import jugador.Mago;
+import jugador.Personaje;
 
 import java.io.*;
 import java.util.HashMap;

@@ -1,6 +1,10 @@
-package Jugador;
+package jugador;
 
 import enemigos.Enemigo;
+import excepciones.NoSePuedeCurarException;
+import excepciones.ObjetoNoDisponibleException;
+import excepciones.PersonajeMuertoException;
+import excepciones.VidaYaCompletaException;
 
 import java.util.HashMap;
 import java.util.HashSet;

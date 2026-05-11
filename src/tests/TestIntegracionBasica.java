@@ -1,4 +1,6 @@
-import Jugador.Personaje;
+package tests;
+
+import jugador.Personaje;
 import enemigos.Enemigo;
 
 public class TestIntegracionBasica {

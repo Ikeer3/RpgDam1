@@ -1,10 +1,13 @@
 package principal;
 
-import Jugador.Arquero;
-import Jugador.Guerrero;
-import Jugador.Mago;
-import Jugador.Personaje;
+import jugador.Arquero;
+import jugador.Guerrero;
+import jugador.Mago;
+import jugador.Personaje;
 import enemigos.Enemigo;
+import excepciones.NoSePuedeCurarException;
+import excepciones.PersonajeMuertoException;
+import excepciones.VidaYaCompletaException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,7 +66,7 @@ public class Juego {
         if (sc.hasNextLine()) {
             sc.nextLine();
         }
-        String nombre = "Jugador";
+        String nombre = "jugador";
         if (opcion==1) {
             this.jugador = new Guerrero(nombre);
         } else if (opcion == 2) {
@@ -98,6 +101,7 @@ public class Juego {
                 case 3:
                     try {
                         jugador.descansar();
+
                     } catch (VidaYaCompletaException vame) {
                         System.out.println("No se puede descansar. La vida está al máximo: " + vame.getVidaActual());
                     }
@@ -150,6 +154,7 @@ public class Juego {
         System.out.println("0. Salir");
         System.out.print("Elige opción: ");
     }
+
 
     private void buscarEnemigo() {
 
