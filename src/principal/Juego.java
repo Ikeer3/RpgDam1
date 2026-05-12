@@ -56,7 +56,7 @@ public class Juego {
         int opcion = 0;
         while (opcion < 1 ||opcion > 3) {
             try {
-                System.out.println("Elige tu clase: Jugador.Guerrero (1), Jugador.Mago (2), Jugador.Arquero (3)");
+                System.out.println("Elige tu clase: Guerrero (1), Mago (2), Arquero (3)");
                 opcion = sc.nextInt();
                 if (opcion<1 || opcion>3) {
                     System.out.println("Selecciona una opción válida");
@@ -110,10 +110,21 @@ public class Juego {
                     break;
                 case 3:
                     try {
-                        jugador.descansar();
-
+                        boolean descansoExitoso = jugador.descansar();
+                        if (!descansoExitoso) {
+                            System.out.println("Un enemigo interrumpe el sueño!");
+                            Enemigo nuevo = generarEnemigoPasado();
+                            enemigos.add(nuevo);
+                            combatir(nuevo);
+                        }
                     } catch (VidaYaCompletaException vame) {
                         System.out.println("No se puede descansar. La vida está al máximo: " + vame.getVidaActual());
+                    } catch (PersonajeMuertoException e) {
+                        System.out.println("Un personaje muerto NO puede combatir.");
+                    } catch (TipoEnemigoDesconocido e) {
+                        System.out.println("Se ha encontrado un tipo de enemigo desconocido. No se sabe qué hacer con él: " + e.getTipoEnemigo());
+                        System.out.println("Abortando la partida.");
+                        throw new RuntimeException(e);
                     }
                     break;
                 case 4:

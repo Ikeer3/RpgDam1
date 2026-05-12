@@ -6,4 +6,8 @@ public class TipoEnemigoDesconocido extends Exception {
     public TipoEnemigoDesconocido(String tipoEnemigo) {
         this.tipoEnemigo = tipoEnemigo;
     }
+
+    public String getTipoEnemigo() {
+        return tipoEnemigo;
+    }
 }
