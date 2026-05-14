@@ -232,7 +232,7 @@ public class Juego {
         System.out.println("Hasta ahora has encontrado " + enemigos.size());
         System.out.println("Te has encontrado con: ");
         for (int i = 0; i<enemigos.size(); i++) {
-            System.out.println((i+1) + " - " + enemigos.get(i).getNombre()) ;
+            System.out.println((i+1) + " - " + enemigos.get(i).getNombreMostrar()) ;
         }
     }
 
