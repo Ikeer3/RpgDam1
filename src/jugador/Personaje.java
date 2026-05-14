@@ -162,7 +162,7 @@ public class Personaje {
         if (vida<=0) {
             throw new PersonajeMuertoException();
         } else {
-            System.out.println(getNombre() + " hace " + ataque + " a " + enemigo.getNombre());
+            System.out.println(getNombre() + " hace " + ataque + " a " + enemigo.getNombreMostrar());
             enemigo.recibirDanio(ataque);
         }
     }
