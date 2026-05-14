@@ -189,16 +189,16 @@ public class Juego {
             Enemigo original = enemigos.get(rand.nextInt(enemigos.size()));
             switch (original.getTipo()) {
                 case Enemigo.TIPO_BASICO:
-                    resultado = new Zombie(buscarEnemigo().getNombre(), buscarEnemigo().getVidaMaxima(), buscarEnemigo().getAtaque());
+                    resultado = new Zombie(original.getNombre(), original.getVidaMaxima(), original.getAtaque());
                     break;
                 case Enemigo.TIPO_ZOMBIE:
-                    resultado = new Espectro(buscarEnemigo().getNombre(), buscarEnemigo().getVidaMaxima(), buscarEnemigo().getAtaque());
+                    resultado = new Espectro(original.getNombre(), original.getVidaMaxima(), original.getAtaque());
                     break;
                 case Enemigo.TIPO_ESPECTRO:
-                    resultado = new Demonio(buscarEnemigo().getNombre(), buscarEnemigo().getVidaMaxima(), buscarEnemigo().getAtaque());
+                    resultado = new Demonio(original.getNombre(), original.getVidaMaxima(), original.getAtaque());
                     break;
                 case Enemigo.TIPO_DEMONIO:
-                    resultado = new Demonio(buscarEnemigo().getNombre(), buscarEnemigo().getVidaMaxima(), buscarEnemigo().getAtaque());
+                    resultado = new Demonio(original.getNombre(), original.getVidaMaxima(), original.getAtaque());
                     break;
                 default:
                     throw new TipoEnemigoDesconocido(original.getTipo());

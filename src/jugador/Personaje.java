@@ -18,7 +18,7 @@ public class Personaje {
     protected final static int DEFENSA_INICIAL = 10;
     public final static String NOMBRE_CLASE = "Genérico";
     private final static int EXPERIENCIA_SUBIR_NIVEL = 200;
-    private final static int PORCENTAJE_DESCANSO_INTERRUMPIDO = 25;
+    private final static int PORCENTAJE_DESCANSO_INTERRUMPIDO = 90;
 
     private String nombre;
     private int vida;
